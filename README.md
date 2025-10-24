@@ -8,6 +8,7 @@ A lightweight, device-compatible favicon generator with Bootstrap-styled interfa
 - **Bootstrap Styled**: Modern, responsive UI using Bootstrap 5
 - **Low File Structure**: Minimal files for easy deployment
 - **Multiple Formats**: Creates 7 different favicon sizes including ICO format
+- **Live Preview**: See how your favicon will appear in browser tabs, mobile home screens, and desktop shortcuts
 - **ZIP Download**: Download all generated favicons at once
 - **Ready-to-use HTML**: Provides copy-paste HTML code for your website
 
@@ -68,11 +69,16 @@ favicon-icon/
    - Click "Generate Favicons" button
    - Wait for processing to complete
 
-3. **Download Files**:
+3. **View Live Preview**:
+   - See how your favicon appears in browser tabs
+   - Preview as mobile home screen icon (iOS/Android)
+   - Check desktop shortcut appearance
+
+4. **Download Files**:
    - Download individual favicon files
    - Or click "Download All (ZIP)" to get all files at once
 
-4. **Implement on Your Website**:
+5. **Implement on Your Website**:
    - Copy the generated HTML code
    - Paste it in the `<head>` section of your website
    - Upload the favicon files to your server

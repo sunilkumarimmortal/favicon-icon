@@ -174,6 +174,122 @@ if (is_dir($output_dir)) {
             font-size: 3rem;
             color: #667eea;
         }
+        .preview-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+        }
+        .browser-mockup {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .browser-header {
+            background: #e9ecef;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .browser-dots {
+            display: flex;
+            gap: 5px;
+        }
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        .browser-tab {
+            background: white;
+            padding: 6px 12px;
+            border-radius: 6px 6px 0 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+        .browser-tab img {
+            width: 16px;
+            height: 16px;
+        }
+        .browser-content {
+            padding: 20px;
+            min-height: 60px;
+            background: white;
+        }
+        .mobile-mockup {
+            background: #1c1c1e;
+            border-radius: 30px;
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .mobile-screen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 20px;
+            min-height: 320px;
+        }
+        .mobile-time {
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .mobile-icons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .mobile-icon {
+            text-align: center;
+        }
+        .mobile-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 13px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 5px;
+        }
+        .mobile-icon-label {
+            color: white;
+            font-size: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .desktop-mockup {
+            background: #2c3e50;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .desktop-icon {
+            text-align: center;
+            display: inline-block;
+            margin: 10px 15px;
+        }
+        .desktop-icon img {
+            width: 64px;
+            height: 64px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        .desktop-icon-label {
+            color: white;
+            font-size: 12px;
+            background: rgba(0,0,0,0.5);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -294,6 +410,113 @@ if (is_dir($output_dir)) {
                         </div>
                     </div>
                 </div>
+
+                <!-- Preview Section -->
+                <?php if (!empty($existing_files)): ?>
+                <div class="card main-card mt-4">
+                    <div class="card-body p-4">
+                        <h4 class="mb-4"><i class="bi bi-eye me-2"></i>Live Preview</h4>
+                        <p class="text-muted mb-4">See how your favicon will appear across different devices and platforms</p>
+
+                        <div class="row">
+                            <!-- Browser Preview -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="preview-card">
+                                    <h6 class="fw-bold mb-3 text-center">
+                                        <i class="bi bi-browser-chrome text-primary me-2"></i>Browser Tab
+                                    </h6>
+                                    <div class="browser-mockup">
+                                        <div class="browser-header">
+                                            <div class="browser-dots">
+                                                <div class="browser-dot dot-red"></div>
+                                                <div class="browser-dot dot-yellow"></div>
+                                                <div class="browser-dot dot-green"></div>
+                                            </div>
+                                            <div class="browser-tab">
+                                                <img src="<?php echo $output_dir; ?>favicon-16x16.png" alt="Favicon">
+                                                <span>My Website</span>
+                                            </div>
+                                        </div>
+                                        <div class="browser-content">
+                                            <small class="text-muted">Your favicon appears in the browser tab</small>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <small class="badge bg-info">16x16 / 32x32 px</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Preview -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="preview-card">
+                                    <h6 class="fw-bold mb-3 text-center">
+                                        <i class="bi bi-phone text-success me-2"></i>Mobile Home Screen
+                                    </h6>
+                                    <div class="mobile-mockup">
+                                        <div class="mobile-screen">
+                                            <div class="mobile-time">9:41 AM</div>
+                                            <div class="mobile-icons">
+                                                <div class="mobile-icon">
+                                                    <img src="<?php echo $output_dir; ?>apple-touch-icon.png" alt="App Icon">
+                                                    <div class="mobile-icon-label">My Site</div>
+                                                </div>
+                                                <div class="mobile-icon">
+                                                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 13px;"></div>
+                                                    <div class="mobile-icon-label">App</div>
+                                                </div>
+                                                <div class="mobile-icon">
+                                                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 13px;"></div>
+                                                    <div class="mobile-icon-label">App</div>
+                                                </div>
+                                                <div class="mobile-icon">
+                                                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 13px;"></div>
+                                                    <div class="mobile-icon-label">App</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <small class="badge bg-success">180x180 / 192x192 px</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Desktop Preview -->
+                            <div class="col-lg-4 mb-4">
+                                <div class="preview-card">
+                                    <h6 class="fw-bold mb-3 text-center">
+                                        <i class="bi bi-display text-warning me-2"></i>Desktop Shortcut
+                                    </h6>
+                                    <div class="desktop-mockup">
+                                        <div class="desktop-icon">
+                                            <img src="<?php echo $output_dir; ?>favicon-48x48.png" alt="Desktop Icon">
+                                            <div class="desktop-icon-label">My Website</div>
+                                        </div>
+                                        <div class="desktop-icon">
+                                            <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+                                            <div class="desktop-icon-label">Folder</div>
+                                        </div>
+                                        <div class="desktop-icon">
+                                            <div style="width: 64px; height: 64px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+                                            <div class="desktop-icon-label">File</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <small class="badge bg-warning">48x48 px</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Preview Info -->
+                        <div class="alert alert-info mt-3">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <strong>Preview Note:</strong> These are simulated previews. Actual appearance may vary slightly depending on the device, browser, and operating system.
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
 
                 <!-- Footer -->
                 <div class="text-center mt-4 text-white-50">
